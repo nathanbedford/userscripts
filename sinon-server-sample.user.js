@@ -46,7 +46,6 @@
     return !shouldFake;
   });
 
-
   // finally, we'll configure Sinon to send our canned responses to the requests we want to fake
   fakeResponses.forEach( r => {
     window.sinonServer.respondWith(r.method, r.url, [r.statusCode, { "Content-Type": "application/json" }, r.body]);
