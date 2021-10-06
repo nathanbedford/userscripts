@@ -37,13 +37,13 @@
       return x.method === method && x.url === url;
     });
 
-    // if this filter handler returns true, the request will not be faked
-    const shouldFake = !registeredResponse;
+    const shouldFake = registeredResponse;
     if (shouldFake) {
       console.warn("Faking response!", method, url, registeredResponse);
     }
 
-    return shouldFake;
+    // if this filter handler returns true, the request will not be faked
+    return !shouldFake;
   });
 
 
